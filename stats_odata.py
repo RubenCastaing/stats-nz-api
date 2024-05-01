@@ -4,10 +4,10 @@ import pandas as pd
 
 # function to call Stats NZ open data api
 
-def get_odata(service, endpoint, entity, query_option, api_key, proxies):
+def get_odata(service = '', endpoint= '', entity = '', query_option = '', api_key = "dde082d59e0a4c49bf83f67ff6b9b032", proxies = {}):
     
 # setup variables    
-    headers = {'Ocp-Apim-Subscription-Key': api_key}
+    headers = {'Ocp-Apim-Subscription-Key': api_key, 'user-agent':''}
     proxies = proxies
     url = service + '/' + endpoint + '/' + entity + '?' + query_option
     top_query = "$top" in query_option
