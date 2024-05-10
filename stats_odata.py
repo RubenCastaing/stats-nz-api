@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-import requests
 import pandas as pd
+import requests
 
-# function to call Stats NZ open data api
+# function to call Stats NZ open data api.
+# This was written by Stats NZ
 
 def get_odata(service = '', endpoint= '', entity = '', query_option = '', api_key = "dde082d59e0a4c49bf83f67ff6b9b032", proxies = {}):
     
