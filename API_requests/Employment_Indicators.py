@@ -18,7 +18,7 @@ def get_employment_indicators():
     Observations = odata.get_odata(service, endpoint, entity, query_option, api_key, proxies)
 
     #Cleaning the data
-    columns_to_drop = ['id', 'ResourceID', 'Status', 'Label3', 'Label4', 'Label5', 'Label6']
+    columns_to_drop = ['ResourceID', 'Status', 'Label3', 'Label4', 'Label5', 'Label6']
     #all_data_from_month.drop(columns_to_drop, axis=1, inplace=True)
     Observations.drop(columns_to_drop, axis=1, inplace=True)
 

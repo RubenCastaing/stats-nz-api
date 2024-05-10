@@ -1,0 +1,11 @@
+id,ResourceID,GeoUnit,Geo,Period,Duration,Label1,Label2,Label3,Label4,Label5,Label6,Value,Unit,Measure,Multiplier,NullReason,Status
+2cded3cf-97fc-4939-8918-821f4c13add4,OSC1.1,,,1988-01-31,P1M,Imports,Auckland (sea),Actual,,,,382184,NZD,"Cost, insurance and freight value",3,,F
+adde45b6-08b9-43b0-afd6-027cf1b78078,OSC1.1,,,1988-01-31,P1M,Imports,Auckland Airport,Actual,,,,166594,NZD,"Cost, insurance and freight value",3,,F
+dd88bcaa-6d39-4847-a308-46f36f2a92ce,OSC1.1,,,1988-01-31,P1M,Imports,Christchurch Airport,Actual,,,,7140,NZD,"Cost, insurance and freight value",3,,F
+f84bbcab-3114-4092-8d89-73d5e016e825,OSC1.1,,,1988-01-31,P1M,Imports,Christchurch Airport,Actual,,,,371,t,Gross weight value,0,,F
+71678fa5-296f-4a62-87fb-352d88534377,OSC1.1,,,1988-01-31,P1M,Imports,Hamilton Airport,Actual,,,,0,t,Gross weight value,0,,F
+bb891474-1ceb-4faf-8e19-a31ce2afaf24,OSC1.1,,,1988-01-31,P1M,Imports,Napier (sea),Actual,,,,10878,NZD,"Cost, insurance and freight value",3,,F
+012915aa-f82f-40dd-b775-8a51d47b2ead,OSC1.1,,,1988-01-31,P1M,Imports,Nelson (sea),Actual,,,,6493,NZD,"Cost, insurance and freight value",3,,F
+986d9655-deff-4570-982e-0403bbfb30a8,OSC1.1,,,1988-01-31,P1M,Imports,Nelson (sea),Actual,,,,11400,t,Gross weight value,0,,F
+cce85bb9-2cc2-45ad-8d31-c0bb241543dd,OSC1.1,,,1988-01-31,P1M,Imports,New Plymouth (sea),Actual,,,,10853,t,Gross weight value,0,,F
+429323f8-f0a3-47fa-b09e-9e27383ac33e,OSC1.1,,,1988-01-31,P1M,Imports,Picton (sea),Actual,,,,0,NZD,"Cost, insurance and freight value",3,,F

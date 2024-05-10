@@ -1,0 +1,65 @@
+API Documentation for Employment Data Query
+
+This API provides access to employment data stored in an SQLite database. It allows users to query the database for records matching specific industry labels.
+
+Base URL
+The base URL for the API when running locally is:
+http://127.0.0.1:5000/
+
+Endpoint: Get Industries
+URL: /get_industries
+
+Method: GET
+
+Description:
+This endpoint retrieves employment data for a specified industry label.
+
+Query Parameters:
+
+label1 (optional): Specifies the industry label to query for. If not provided, the default value "All industries" is used.
+Example Request:
+To query data for all industries:
+
+perl
+Copy code
+GET http://127.0.0.1:5000/get_industries?label1=All%20industries
+To query data for a specific industry, such as "Goods-producing industries":
+
+perl
+Copy code
+GET http://127.0.0.1:5000/get_industries?label1=Goods-producing%20industries
+Response:
+
+The response will be a JSON array of objects, where each object represents a record matching the query. Each object contains all columns from the EmploymentData table.
+
+Successful Response Example:
+
+json
+Copy code
+[
+    {
+        "ID": "abc123",
+        "GeoUnit": null,
+        "Geo": null,
+        "Period": "2024-03-31",
+        "Duration": "P1M",
+        "Label1": "All industries",
+        "Label2": "Actual",
+        "Value": 14944.18,
+        "Unit": "NZD",
+        "Measure": "Earnings - cash",
+        "Multiplier": 6,
+        "NullReason": null
+    },
+    ...
+]
+Error Response:
+If no data is found for the provided label, the API will return a 404 status code with an error message.
+
+Error Response Example:
+
+json
+Copy code
+{
+    "error": "No data found"
+}

@@ -1,0 +1,11 @@
+id,ResourceID,GeoUnit,GeoCode,Geo,Period,Duration,Code1,Label1,Code2,Label2,Code3,Label3,Code4,Label4,Code5,Label5,Code6,Label6,Value,Unit,Measure,Multiplier,NullReason,Status
+2b29eba3-4ccb-47d6-98c2-96abdfac8702,ITM1.1,,,,2021-09-30,P1M,A,Arrival,R,New Zealand resident,000,Less than One Year,F,Female,DE,Germany,,Actual,3,Count,Border crossing,0,,F
+b9307ede-1e26-49fe-9413-d235adecfa05,ITM1.1,,,,2021-09-30,P1M,A,Arrival,R,New Zealand resident,000,Less than One Year,F,Female,AU,Australia,,Actual,3,Count,Border crossing,0,,F
+de7270fd-8314-4e70-b500-583d47ff87f5,ITM1.1,,,,2021-09-30,P1M,A,Arrival,R,New Zealand resident,000,Less than One Year,F,Female,GB,United Kingdom,,Actual,3,Count,Border crossing,0,,F
+4cd171b7-3156-4bc4-b841-a7e7266c3e57,ITM1.1,,,,2021-09-30,P1M,A,Arrival,R,New Zealand resident,000,Less than One Year,F,Female,IN,India,,Actual,3,Count,Border crossing,0,,F
+f0a4a99a-31c4-41a3-ace1-5113c90cae7d,ITM1.1,,,,2021-09-30,P1M,A,Arrival,R,New Zealand resident,000,Less than One Year,F,Female,ZZ,TOTAL,,Actual,15,Count,Border crossing,0,,F
+859f6a78-ae11-4562-bfa5-c01a42ea363e,ITM1.1,,,,2021-09-30,P1M,A,Arrival,R,New Zealand resident,000,Less than One Year,M,Male,IN,India,,Actual,3,Count,Border crossing,0,,F
+a3b1eeb2-1195-4776-9018-74d3b6f4d955,ITM1.1,,,,2021-09-30,P1M,A,Arrival,R,New Zealand resident,000,Less than One Year,M,Male,SI,Slovenia,,Actual,3,Count,Border crossing,0,,F
+f951cf54-8917-469f-a21e-b3cd89fd6256,ITM1.1,,,,2021-09-30,P1M,A,Arrival,R,New Zealand resident,000,Less than One Year,Z,TOTAL,AU,Australia,,Actual,3,Count,Border crossing,0,,F
+a89c98f8-cfbb-47c5-99bb-3ba28458b3be,ITM1.1,,,,2021-09-30,P1M,A,Arrival,R,New Zealand resident,000,Less than One Year,Z,TOTAL,CA,Canada,,Actual,3,Count,Border crossing,0,,F
+b9372c14-52f4-457f-95b5-7a72bb1b4888,ITM1.1,,,,2021-09-30,P1M,A,Arrival,R,New Zealand resident,000,Less than One Year,Z,TOTAL,DE,Germany,,Actual,6,Count,Border crossing,0,,F

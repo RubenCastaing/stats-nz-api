@@ -5,10 +5,10 @@ def create_database_and_table(db_name):
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
 
-    # Create a table
-    # Adjust the SQL statement based on the DataFrame's structure
+    # Create a table with a UNIQUE constraint on the ID column
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS EmploymentData (
+            ID TEXT PRIMARY KEY,
             GeoUnit TEXT,
             Geo TEXT,
             Period DATE,
@@ -25,4 +25,4 @@ def create_database_and_table(db_name):
     conn.commit()  # Commit the changes
     conn.close()  # Close the connection
 
-create_database_and_table('employment_data.db')
+create_database_and_table('stats_nz_data.db')
