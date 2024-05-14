@@ -5,6 +5,18 @@ import sqlite3
 #This is the main file for requesting the data from stats nz.
 #It puts all the data into the stats_nz_data.db database.
 #This gets requested by a squdualer in AWS.
+#It requests the data from each of the endpoints.
+
+#There are 9 endpoints as of 14/05/2024. These are:
+#EmploymentIndicators
+#OverseasCargo
+#Covid-19Indicators
+#InternationalMigration
+#HouseholdLabourForceSurvey
+#2018Census-PopulationDwellings
+#OverseasMerchandiseTrade
+#InternationalTravel
+#NationalAccounts
 
 # Fetch the data
 Employment_indicators_df = Employment_Indicators.get_employment_indicators()

@@ -4,6 +4,7 @@ import requests
 
 # function to call Stats NZ open data api.
 # This was written by Stats NZ
+# Consider it a import that doesn't need to be marked
 
 def get_odata(service = '', endpoint= '', entity = '', query_option = '', api_key = "dde082d59e0a4c49bf83f67ff6b9b032", proxies = {}):
     

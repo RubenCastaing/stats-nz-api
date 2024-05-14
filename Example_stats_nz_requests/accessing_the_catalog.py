@@ -26,8 +26,9 @@ try:
 
         # Display the DataFrame
         pd.set_option('display.max_rows', 100)
-        print(df)
-        df.to_csv('stats_nz_data.csv', index=False)
+        print(df.to_string())
+
+        #df.to_csv('stats_nz_data.csv', index=False)
 
 
 except Exception as e:

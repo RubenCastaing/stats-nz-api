@@ -1,6 +1,8 @@
 import sqlite3
 import pandas as pd
 
+#Example query to a local database. Just for testing
+
 # Connect to the SQLite database
 conn = sqlite3.connect('stats_nz_data.db')
 
