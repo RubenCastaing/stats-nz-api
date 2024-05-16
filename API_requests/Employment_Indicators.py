@@ -21,5 +21,8 @@ def get_employment_indicators():
     columns_to_drop = ['ResourceID', 'Status', 'Label3', 'Label4', 'Label5', 'Label6']
     #all_data_from_month.drop(columns_to_drop, axis=1, inplace=True)
     Observations.drop(columns_to_drop, axis=1, inplace=True)
+    
+    #Code to save an example CSV
+    #Observations.to_csv('employment_indicators', index=False)
 
     return(Observations)

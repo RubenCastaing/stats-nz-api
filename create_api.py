@@ -3,7 +3,7 @@ import sqlite3
 
 app = Flask(__name__)
 
-def query_database(label1):
+def query_employment_data(label1):
     conn = sqlite3.connect('stats_nz_data.db')
     cur = conn.cursor()
     cur.execute("SELECT * FROM EmploymentData WHERE Label1 = ?", (label1,))
@@ -13,10 +13,13 @@ def query_database(label1):
     conn.close()
     return results
 
-@app.route('/get_industries', methods=['GET'])
-def get_industries():
-    label1 = request.args.get('label1', 'All industries')  # Default to 'All industries' if no label provided
-    results = query_database(label1)
+@app.route('/employment_indicators', methods=['GET'])
+def get_employment_indicators():
+    # Retrieve 'label1' from query parameters, defaulting to 'All industries' if not provided
+    label1 = request.args.get('label1', 'All industries')
+    results = query_employment_data(label1)
+    
+    # Check if results were found and return them as JSON
     if results:
         return jsonify(results)
     else:

@@ -4,6 +4,9 @@ import pandas as pd
 from datetime import datetime, timedelta
 pd.set_option('display.max_rows', 100)
 
+#This function gets the overseas cargo from the stats nz API.
+#It is not currently being used.
+
 def GetOverseasCargo():
     # Calculate the date for two months before today
     two_months_ago = (datetime.now() - timedelta(days=60)).strftime('%Y-%m-%d')
