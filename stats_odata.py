@@ -2,7 +2,7 @@
 import pandas as pd
 import requests
 
-# function to call Stats NZ open data api.
+# Function to call Stats NZ open data api.
 # This was written by Stats NZ
 # Consider it a import that doesn't need to be marked
 

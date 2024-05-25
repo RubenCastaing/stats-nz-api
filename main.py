@@ -7,7 +7,7 @@ import sqlite3
 #This gets requested by a squdualer in AWS.
 #It requests the data from each of the endpoints.
 
-#There are 9 endpoints as of 14/05/2024. These are:
+#There are 9 endpoints as of 14/05/2024. Only EmploymentIndicators is implemented These are:
 #EmploymentIndicators
 #OverseasCargo
 #Covid-19Indicators

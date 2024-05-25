@@ -1,5 +1,8 @@
 import sqlite3
 
+#This file creates a new SQLite database.
+#The column names are the same as the stats NZ's ones
+
 def create_database_and_table(db_name):
     # Connect to the SQLite database. It will be created if it does not exist.
     conn = sqlite3.connect(db_name)
