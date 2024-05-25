@@ -1,4 +1,4 @@
-API Documentation for Employment Data Query
+API Documentation for Employment Indicators
 
 This API provides access to employment data stored in an SQLite database. It allows users to query the database for records matching specific industry labels.
 
