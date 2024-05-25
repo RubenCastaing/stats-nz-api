@@ -53,13 +53,3 @@ Copy code
     },
     ...
 ]
-Error Response:
-If no data is found for the provided label, the API will return a 404 status code with an error message.
-
-Error Response Example:
-
-json
-Copy code
-{
-    "error": "No data found"
-}

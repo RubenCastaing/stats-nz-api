@@ -1,14 +1,13 @@
 import sqlite3
 
-#This file creates a new SQLite database.
-#The column names are the same as the stats NZ's ones
+# This file creates a new SQLite database with the desired column names.
 
 def create_database_and_table(db_name):
     # Connect to the SQLite database. It will be created if it does not exist.
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
 
-    # Create a table with a UNIQUE constraint on the ID column
+    # Create a table with the new column names
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS EmploymentData (
             ID TEXT PRIMARY KEY,
@@ -16,8 +15,8 @@ def create_database_and_table(db_name):
             Geo TEXT,
             Period DATE,
             Duration TEXT,
-            Label1 TEXT,
-            Label2 TEXT,
+            Industry TEXT,
+            Type TEXT,
             Value REAL,
             Unit TEXT,
             Measure TEXT,
