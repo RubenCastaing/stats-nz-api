@@ -2,24 +2,20 @@ from API_requests import Employment_Indicators
 import pandas as pd
 import sqlite3
 
-#This is the main file for requesting the data from stats nz.
-#It puts all the data into the stats_nz_data.db database.
-#This gets requested by a squdualer in AWS.
-#It requests the data from each of the endpoints.
-
-#There are 9 endpoints as of 14/05/2024. Only EmploymentIndicators is implemented These are:
-#EmploymentIndicators
-#OverseasCargo
-#Covid-19Indicators
-#InternationalMigration
-#HouseholdLabourForceSurvey
-#2018Census-PopulationDwellings
-#OverseasMerchandiseTrade
-#InternationalTravel
-#NationalAccounts
+# This is the main file for requesting the data from stats nz.
+# It puts all the data into the stats_nz_data.db database.
+# This gets requested by a scheduler in AWS.
+# It requests the data from each of the endpoints.
 
 # Fetch the data
 Employment_indicators_df = Employment_Indicators.get_employment_indicators()
+
+# Renaming columns to something readable
+Employment_indicators_df.rename(columns={
+    'Label1': 'Industry',
+    'Label2': 'Type',
+    'id':'ID'
+}, inplace=True)
 
 # Set pandas to display all columns in DataFrame
 pd.set_option('display.max_columns', None)
@@ -33,18 +29,18 @@ cursor = conn.cursor()
 # Iterate over the DataFrame rows
 for index, row in Employment_indicators_df.iterrows():
     # Check if the ID already exists
-    cursor.execute("SELECT ID FROM EmploymentData WHERE ID = ?", (row['id'],))
+    cursor.execute("SELECT ID FROM EmploymentData WHERE ID = ?", (row['ID'],))
     data_exists = cursor.fetchone()
     
     if not data_exists:
-        # If the ID does not exist, insert the new row
+        # If the ID does not exist, insert the new row with renamed columns
         cursor.execute('''
-            INSERT INTO EmploymentData (id, GeoUnit, Geo, Period, Duration, Label1, Label2, Value, Unit, Measure, Multiplier, NullReason)
+            INSERT INTO EmploymentData (ID, GeoUnit, Geo, Period, Duration, Industry, Type, Value, Unit, Measure, Multiplier, NullReason)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        ''', (row['id'], row['GeoUnit'], row['Geo'], row['Period'], row['Duration'], row['Label1'], row['Label2'], row['Value'], row['Unit'], row['Measure'], row['Multiplier'], row['NullReason']))
+        ''', (row['ID'], row['GeoUnit'], row['Geo'], row['Period'], row['Duration'], row['Industry'], row['Type'], row['Value'], row['Unit'], row['Measure'], row['Multiplier'], row['NullReason']))
         conn.commit()  # Commit the insert
     else:
-        print(f"Record with id {row['id']} already exists.")
+        print(f"Record with ID {row['ID']} already exists.")
 
 # Close the connection
 conn.close()
