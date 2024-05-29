@@ -15,8 +15,8 @@ different goverment sources and make it easy to access from a single source. Thi
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/stats-nz-api-integration.git
-    cd stats-nz-api-integration
+    git clone https://github.com/RubenCastaing/stats-nz-api.git
+    cd stats-nz-api
     ```
 
 2. **Create a virtual environment**:
@@ -30,9 +30,17 @@ different goverment sources and make it easy to access from a single source. Thi
     pip install -r requirements.txt
     ```
 
-4. **Set up the SQLite database**:
+4. **Set up the SQLite database and API**:
     ```bash
-    python create_database_and_table.py
+    python create_database.py
+    python create_api.py
+    ```
+
+5. **Run a cron job to call main.py each month**:
+    ```bash
+    #This loads the data from Stats NZ
+    python create_database.py
+    python create_api.py
     ```
 
 ## API Usage
