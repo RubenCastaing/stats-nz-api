@@ -1,7 +1,7 @@
 # Stats NZ API Integration
 
 
-This project is a small part of Data engineering class project to collect data from many
+This project is a small part of the data engineering class project to collect data from
 different goverment sources and make it easy to access from a single source. This repo reads employment indicators from Stats Nz. It cleans it, and put it into an SQLite database. This can then be queried via an API. This is hosted on a EC2 instance on AWS. It gets new data from stats_nz at the start of each month. 
 
 ## Table of Contents
