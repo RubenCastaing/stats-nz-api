@@ -1,7 +1,8 @@
 import logging
 from flask import Flask, jsonify, request
 import sqlite3
-from datetime import datetime
+import json
+import os
 
 # Configure logging
 logging.basicConfig(
@@ -45,7 +46,7 @@ def query_employment_data(label1=None, geo=None):
     conn.close()
     return results
 
-# API route
+# API route for employment indicators
 @app.route('/employment_indicators', methods=['GET'])
 def get_employment_indicators():
     label1 = request.args.get('label1')
@@ -58,6 +59,14 @@ def get_employment_indicators():
     else:
         app.logger.warning('No data found for label1=%s, geo=%s', label1, geo)
         return jsonify({"error": "No data found"}), 404
+
+# API route for metadata
+@app.route('/metadata', methods=['GET'])
+def get_metadata():
+    metadata_path = os.path.join(os.path.dirname(__file__), 'API_requests', 'metadata.json')
+    with open(metadata_path, 'r') as f:
+        metadata = json.load(f)
+    return jsonify(metadata)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8080)
