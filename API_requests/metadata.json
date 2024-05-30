@@ -1,0 +1,21 @@
+{
+    "dataset_name": "Employment Indicators",
+    "data_source": "Stats NZ API",
+    "description": "Removed unneeded columns and improved column names.",
+    "version": "1.1",
+    "columns": {
+      "Duration": "The duration the data is reported, e.g., 'P1M' indicates a period of one month.",
+      "Geo": "The geographical region where the data was collected. Null if country wide data.",
+      "GeoUnit": "The geographical unit of the data. Null if country wide data.",
+      "ID": "A unique identifier for each record in the dataset.",
+      "Label1": "The primary categorization of the data, such as industry or sector. Left as Label1 to be consistant with Stats NZ",
+      "Label2": "A secondary categorization or status of the data, such as 'Actual' Left as Label2 to be consistant with Stats NZ.",
+      "Measure": "The specific measure or metric being reported, such as 'Earnings - cash'.",
+      "Multiplier": "An economic factor that causes changes in many other related economic variables.",
+      "NullReason": "The reason why a data point is null, if applicable. Null if not applicable.",
+      "Period": "The date or period end for which the data is reported.",
+      "Unit": "The unit of measurement for the value, such as 'NZD' for New Zealand Dollars.",
+      "Value": "The reported value for the specified measure and period."
+    }
+  }
+  
