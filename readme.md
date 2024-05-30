@@ -10,10 +10,10 @@ This prroject to collects data from different goverment sources and make it easy
     ```
 
 2. **Update Package List and Install python3-venv**:
-        ```bash
-        sudo apt update
-        sudo apt install python3-venv
-       ```
+    ```bash
+    sudo apt update
+    sudo apt install python3-venv
+    ```
 
 3. **Create a virtual environment**:
     ```bash
