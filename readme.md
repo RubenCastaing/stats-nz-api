@@ -3,10 +3,10 @@ This prroject to collects data from different goverment sources and makes it eas
 
 ## Accessing the API
 Call http://54.253.55.30:8080/employment_indicators
+Note the metadata is also in the JSON, it is at the bottom.
 
 
 ## Features
-
 - Fetches data from employment_indicators of the Stats NZ API each month.
 - Renames columns for better readability.
 - Stores data in an SQLite database.
