@@ -11,7 +11,7 @@ def get_employment_indicators():
     service = "https://api.stats.govt.nz/odata/v1"
     entity = "Observations" 
     query_option = f"$filter=Period ge {two_months_ago}"
-    api_key = "dde082d59e0a4c49bf83f67ff6b9b032"
+    api_key = "dde082d59e0a4c49bf83f67ff6b9b032" #The API_key is public. No need to keep it secure.
     proxies = {}
 
     #Sending an API request

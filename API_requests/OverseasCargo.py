@@ -15,7 +15,7 @@ def GetOverseasCargo():
     service = "https://api.stats.govt.nz/odata/v1"
     entity = "Observations" 
     query_option = "$top=10"
-    api_key = "dde082d59e0a4c49bf83f67ff6b9b032"
+    api_key = "dde082d59e0a4c49bf83f67ff6b9b032" #The API key is public. No need to keep it secure.
     proxies = {}
 
     #Sending an API request

@@ -1,5 +1,5 @@
-import logging
 from flask import Flask, jsonify, request
+import logging
 import sqlite3
 import json
 import os
@@ -24,7 +24,12 @@ def log_response_info(response):
     app.logger.info('Response status: %s', response.status)
     return response
 
-# Database query function
+def validate_input(input_value):
+    # Add your validation logic here
+    if not input_value.isalnum():
+        raise ValueError("Invalid input")
+    return input_value
+
 def query_employment_data(label1=None, geo=None):
     conn = sqlite3.connect('stats_nz_data.db')
     cur = conn.cursor()
@@ -46,36 +51,45 @@ def query_employment_data(label1=None, geo=None):
     conn.close()
     return results
 
-# API route for employment indicators
-@app.route('/employment_indicators', methods=['GET'])
-def get_employment_indicators():
-    label1 = request.args.get('label1')
-    geo = request.args.get('geo')
-    results = query_employment_data(label1, geo)
-    
-    if results:
-        app.logger.info('Data retrieved successfully for label1=%s, geo=%s', label1, geo)
-        return jsonify(results)
-    else:
-        app.logger.warning('No data found for label1=%s, geo=%s', label1, geo)
-        return jsonify({"error": "No data found"}), 404
-
-# API route for metadata
-@app.route('/metadata', methods=['GET'])
-def get_metadata():
+def load_metadata():
     metadata_path = os.path.join(os.path.dirname(__file__), 'API_requests', 'metadata.json')
     app.logger.info('Attempting to load metadata from %s', metadata_path)
     try:
         with open(metadata_path, 'r') as f:
             metadata = json.load(f)
         app.logger.info('Metadata loaded successfully')
-        return jsonify(metadata)
+        return metadata
     except FileNotFoundError:
         app.logger.error('Metadata file not found at %s', metadata_path)
-        return jsonify({"error": "Metadata file not found"}), 404
+        return {"error": "Metadata file not found"}
     except json.JSONDecodeError:
         app.logger.error('Error decoding JSON from metadata file at %s', metadata_path)
-        return jsonify({"error": "Error decoding JSON from metadata file"}), 500
+        return {"error": "Error decoding JSON from metadata file"}
+
+@app.route('/employment_indicators', methods=['GET'])
+def get_employment_indicators():
+    label1 = request.args.get('label1')
+    geo = request.args.get('geo')
+
+    if label1:
+        label1 = validate_input(label1)
+    if geo:
+        geo = validate_input(geo)
+
+    results = query_employment_data(label1, geo)
+    metadata = load_metadata()
+
+    response = {
+        "metadata": metadata,
+        "data": results
+    }
+
+    if results:
+        app.logger.info('Data retrieved successfully for label1=%s, geo=%s', label1, geo)
+        return jsonify(response)
+    else:
+        app.logger.warning('No data found for label1=%s, geo=%s', label1, geo)
+        return jsonify({"error": "No data found", "metadata": metadata}), 404
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8080)
+    app.run(debug=False, host='0.0.0.0', port=8080)
