@@ -3,8 +3,8 @@ This prroject to collects data from different goverment sources and makes it eas
 
 ## Accessing the API
 Call http://54.253.55.30:8080/employment_indicators
-Note the metadata is also in the JSON, it is at the bottom.
-
+The metadata is also in the JSON, it is at the bottom.
+This project will get taken down when the Uni stops funding the EC2 instance.
 
 ## Features
 - Fetches data from employment_indicators of the Stats NZ API each month.
