@@ -70,6 +70,8 @@ Logs look like this
 I tried setting up elastic search for visulising logs but this broke the project when it ran out of memory.
 
 ## Security
+I've used parameterized queries, which is good practice to prevent SQL injection.
+Be careful when hosting as bots sometimes try attacking the EC2 instance.
 
 ## Contact
 Ruben Castaing castaingruben@gmail.com
