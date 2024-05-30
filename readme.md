@@ -23,15 +23,16 @@ This prroject to collects data from different goverment sources and make it easy
 
 4. **Install dependencies**:
     ```bash
-    pip install pandas requests flask
+    pip install pandas requests flask gunicorn
     ```
 
-5. **Set up the SQLite database and API**:
+5. **Set up the SQLite database and the API**:
     Run both the create_database and create_api files.
     ```bash
     python create_database.py
-    python create_api.py
+    gunicorn --bind 0.0.0.0:8080 create_api:app
     ```
+    Gunicorn is safer for running a production enviroment. Simply run create_api.py if running locally.
 
 6. **Run a cron job to call main.py each month**:
 
