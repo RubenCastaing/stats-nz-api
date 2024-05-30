@@ -47,17 +47,12 @@ Call http://54.253.55.30:8080/employment_indicators
    [2024-05-30 01:16:06 +0000] [2626] [INFO] Booting worker with pid: 2626
 
 7. **Run a cron job to call main.py each month**:
+    crontab -e # then select nano
+    30 2 1 * * /home/ubuntu/stats-nz-api/myenv/bin/python /home/ubuntu/stats-nz-api/main.py >> /home/ubuntu/stats-nz-api/cron_test.log 2>&1
 
-
-## API Usage
-
-1. **Fetch data and insert into the database**:
-    ```bash
-    python main.py
-    ```
-
-2. **Access the SQLite database**:
-    The database file `stats_nz_data.db` will be created/updated in the project directory. You can use any SQLite client to query the data.
+## Logging
+This has logging both from checking that cron is working and checking who has pinged the API.
+I tried setting up elastic search but this broke the project when it ran out of memory.
 
 ## Features
 
