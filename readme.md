@@ -9,25 +9,31 @@ This prroject to collects data from different goverment sources and make it easy
     cd stats-nz-api
     ```
 
-2. **Create a virtual environment**:
+2. **Update Package List and Install python3-venv**:
+        ```bash
+        sudo apt update
+        sudo apt install python3-venv
+       ```
+
+3. **Create a virtual environment**:
     ```bash
     python -m venv myenv
     source myenv/bin/activate  # On Windows, use `myenv\Scripts\activate`
     ```
 
-3. **Install dependencies**:
+4. **Install dependencies**:
     ```bash
     pip install pandas requests flask
     ```
 
-4. **Set up the SQLite database and API**:
+5. **Set up the SQLite database and API**:
     Run both the create_database and create_api files.
     ```bash
     python create_database.py
     python create_api.py
     ```
 
-5. **Run a cron job to call main.py each month**:
+6. **Run a cron job to call main.py each month**:
 
 
 ## API Usage
