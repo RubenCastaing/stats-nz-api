@@ -6,9 +6,9 @@ import os
 
 # Configure logging
 logging.basicConfig(
-    filename='/home/ubuntu/api_logs.log',  # Change this to your log file path
-    level=logging.INFO,                    # Log level
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'  # Log format
+    filename='/home/ubuntu/api_logs.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 
 app = Flask(__name__)
@@ -64,9 +64,18 @@ def get_employment_indicators():
 @app.route('/metadata', methods=['GET'])
 def get_metadata():
     metadata_path = os.path.join(os.path.dirname(__file__), 'API_requests', 'metadata.json')
-    with open(metadata_path, 'r') as f:
-        metadata = json.load(f)
-    return jsonify(metadata)
+    app.logger.info('Attempting to load metadata from %s', metadata_path)
+    try:
+        with open(metadata_path, 'r') as f:
+            metadata = json.load(f)
+        app.logger.info('Metadata loaded successfully')
+        return jsonify(metadata)
+    except FileNotFoundError:
+        app.logger.error('Metadata file not found at %s', metadata_path)
+        return jsonify({"error": "Metadata file not found"}), 404
+    except json.JSONDecodeError:
+        app.logger.error('Error decoding JSON from metadata file at %s', metadata_path)
+        return jsonify({"error": "Error decoding JSON from metadata file"}), 500
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8080)
