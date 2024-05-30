@@ -48,6 +48,11 @@ Call http://54.253.55.30:8080/employment_indicators
 This has logging both from checking that cron is working and checking who has pinged the API.
 I tried setting up elastic search but this broke the project when it ran out of memory.
 
+Logs look like this
+2024-05-30 01:44:40,219 - create_api - INFO - Received request: 202.36.179.72 GET http://54.253.55.30:8080/employment_indicators
+2024-05-30 01:44:40,223 - create_api - INFO - Data retrieved successfully for label1=None, geo=None
+2024-05-30 01:44:40,226 - create_api - INFO - Response status: 200 OK
+
 ## Features
 
 - Fetches data from multiple endpoints of the Stats NZ API.
