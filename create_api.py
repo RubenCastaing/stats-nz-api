@@ -1,15 +1,27 @@
 import logging
 from flask import Flask, jsonify, request
 import sqlite3
+from datetime import datetime
 
 # Configure logging
 logging.basicConfig(
-    filename='/var/log/api_logs.log',  # Path to your log file
-    level=logging.INFO,                # Log level
+    filename='/home/ubuntu/api_logs.log',  # Change this to your log file path
+    level=logging.INFO,                    # Log level
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'  # Log format
 )
 
 app = Flask(__name__)
+
+# Log details of incoming requests
+@app.before_request
+def log_request_info():
+    app.logger.info('Received request: %s %s %s', request.remote_addr, request.method, request.url)
+
+# Log details of outgoing responses
+@app.after_request
+def log_response_info(response):
+    app.logger.info('Response status: %s', response.status)
+    return response
 
 # Database query function
 def query_employment_data(label1=None, geo=None):
