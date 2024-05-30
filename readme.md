@@ -39,13 +39,6 @@ Call http://54.253.55.30:8080/employment_indicators
     Gunicorn is safer for running a production enviroment. Simply run create_api.py if running locally.
     Note that ports may be an issue. This currently runs on port 8080. Make sure you don't run multiple processes on the same port
 
-   That should look like the following if working:
-   
-   [2024-05-30 01:16:06 +0000] [2625] [INFO] Starting gunicorn 22.0.0
-   [2024-05-30 01:16:06 +0000] [2625] [INFO] Listening at: http://0.0.0.0:8080 (2625)
-   [2024-05-30 01:16:06 +0000] [2625] [INFO] Using worker: sync
-   [2024-05-30 01:16:06 +0000] [2626] [INFO] Booting worker with pid: 2626
-
 7. **Run a cron job to call main.py each month**:
    ```bash
     crontab -e # then select nano
