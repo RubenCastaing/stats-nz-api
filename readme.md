@@ -1,17 +1,7 @@
 # Stats NZ API Integration
+This prroject to collects data from different goverment sources and make it easy to access from a single source. This repo reads employment indicators from Stats NZ. It cleans it, and put it into an SQLite database. This can then be queried via an API. This is hosted on a EC2 instance on AWS. It gets new data from Stats NZ at the start of each month. This is for a class project.
 
-
-This project is a small part of the data engineering class project to collect data from
-different goverment sources and make it easy to access from a single source. This repo reads employment indicators from Stats Nz. It cleans it, and put it into an SQLite database. This can then be queried via an API. This is hosted on a EC2 instance on AWS. It gets new data from stats_nz at the start of each month. 
-
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Contact](#contact)
-
-## Installation
+## Installation on an AWS EC2 instance
 
 1. **Clone the repository**:
     ```bash
@@ -27,21 +17,18 @@ different goverment sources and make it easy to access from a single source. Thi
 
 3. **Install dependencies**:
     ```bash
-    pip install -r requirements.txt
+    pip install pandas requests flask
     ```
 
 4. **Set up the SQLite database and API**:
+    Run both the create_database and create_api files.
     ```bash
     python create_database.py
     python create_api.py
     ```
 
 5. **Run a cron job to call main.py each month**:
-    ```bash
-    #This loads the data from Stats NZ
-    python create_database.py
-    python create_api.py
-    ```
+
 
 ## API Usage
 
