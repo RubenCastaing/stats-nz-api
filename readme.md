@@ -48,19 +48,30 @@ Call http://54.253.55.30:8080/employment_indicators
     Gunicorn is safer for running a production enviroment. Simply run create_api.py if running locally.
     Note that ports may be an issue. This currently runs on port 8080. Make sure you don't run multiple processes on the same port
 
-7. **Run a cron job to call main.py each month**:
+6. **Run a cron job**:
+    This calls main.py each at the start of the month at 2:30am and checks the API keeps running every 10 min. It restarts if it goes down.
    ```bash
     crontab -e # then select nano
     30 2 1 * * /home/ubuntu/stats-nz-api/myenv/bin/python /home/ubuntu/stats-nz-api/main.py >> /home/ubuntu/stats-nz-api/cron_test.log 2>&1
+   */10 * * * * /home/ubuntu/stats-nz-api/myenv/bin/python /home/ubuntu/stats-nz-api/health_check.py >> /home/ubuntu/stats-nz-api/health_c>
     ```
 ## Logging
-This has logging both from checking that cron is working and checking who has pinged the API.
-I tried setting up elastic search but this broke the project when it ran out of memory.
+    This has logging for checking that cron is working and checking API requests.
+    
+    ```bash
+    cat /home/ubuntu/api_logs.log #User logs
+    cat /home/ubuntu/stats-nz-api/cron_test.log #Cron logs
+    #Use tail -f to veiw the logs in real time
+    ```
+    
+    Logs look like this
+    2024-05-30 01:44:40,219 - create_api - INFO - Received request: 202.36.179.72 GET http://54.253.55.30:8080/employment_indicators
+    2024-05-30 01:44:40,223 - create_api - INFO - Data retrieved successfully for label1=None, geo=None
+    2024-05-30 01:44:40,226 - create_api - INFO - Response status: 200 OK
 
-Logs look like this
-2024-05-30 01:44:40,219 - create_api - INFO - Received request: 202.36.179.72 GET http://54.253.55.30:8080/employment_indicators
-2024-05-30 01:44:40,223 - create_api - INFO - Data retrieved successfully for label1=None, geo=None
-2024-05-30 01:44:40,226 - create_api - INFO - Response status: 200 OK
+    I tried setting up elastic search but this broke the project when it ran out of memory.
+
+## Security
 
 ## Contact
 Ruben Castaing castaingruben@gmail.com
