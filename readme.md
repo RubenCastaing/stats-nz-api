@@ -58,11 +58,9 @@ Note the metadata is also in the JSON, it is at the bottom.
 ## Logging
 This has logging for checking that cron is working and checking API requests.
 
-    ```bash
     cat /home/ubuntu/api_logs.log #User logs
     cat /home/ubuntu/stats-nz-api/cron_test.log #Cron logs
     #Use tail -f to veiw the logs in real time
-    ```
     
 Logs look like this
 2024-05-30 01:44:40,219 - create_api - INFO - Received request: 202.36.179.72 GET http://54.253.55.30:8080/employment_indicators
