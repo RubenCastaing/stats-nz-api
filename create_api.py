@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
-import logging
 import sqlite3
+import logging
 import json
 import os
 
