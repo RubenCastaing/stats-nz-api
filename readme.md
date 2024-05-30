@@ -1,5 +1,5 @@
 # Stats NZ API Integration
-This prroject to collects data from different goverment sources and make it easy to access from a single source. This repo reads employment indicators from Stats NZ. It cleans it, and put it into an SQLite database. This can then be queried via an API. This is hosted on a EC2 instance on AWS. It gets new data from Stats NZ at the start of each month. This is for a class project.
+This prroject to collects data from different goverment sources and makes it easy to access from a single source. This repo reads employment indicators from Stats NZ. It cleans it, and put it into an SQLite database. This can then be queried via an API. This is hosted on a EC2 instance on AWS. It gets new data from Stats NZ at the start of each month. This is for a class project. The data avaliable is from March 2024 onwards.
 
 ## Accessing the API
 Call http://54.253.55.30:8080/employment_indicators
