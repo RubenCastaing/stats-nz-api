@@ -3,6 +3,7 @@ import sqlite3
 import logging
 import json
 import os
+from collections import OrderedDict
 
 # Configure logging
 logging.basicConfig(
@@ -79,17 +80,20 @@ def get_employment_indicators():
     results = query_employment_data(label1, geo)
     metadata = load_metadata()
 
-    response = {
-        "metadata": metadata,
-        "data": results
-    }
+    response = OrderedDict([
+        ("metadata", metadata),
+        ("data", results)
+    ])
 
     if results:
         app.logger.info('Data retrieved successfully for label1=%s, geo=%s', label1, geo)
         return jsonify(response)
     else:
         app.logger.warning('No data found for label1=%s, geo=%s', label1, geo)
-        return jsonify({"error": "No data found", "metadata": metadata}), 404
+        return jsonify(OrderedDict([
+            ("error", "No data found"),
+            ("metadata", metadata)
+        ])), 404
 
 if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0', port=8080)
