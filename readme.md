@@ -4,6 +4,14 @@ This prroject to collects data from different goverment sources and make it easy
 ## Accessing the API
 Call http://54.253.55.30:8080/employment_indicators
 
+## Features
+
+- Fetches data from employment_indicators of the Stats NZ API.
+- Renames columns for better readability.
+- Stores data in an SQLite database.
+- Checks for new data each month based on when stats nz updates their data.
+- Contains logging to check who logged in.
+
 ## Installation on an AWS EC2 instance
 
 1. **Clone the repository**:
@@ -52,13 +60,6 @@ Logs look like this
 2024-05-30 01:44:40,219 - create_api - INFO - Received request: 202.36.179.72 GET http://54.253.55.30:8080/employment_indicators
 2024-05-30 01:44:40,223 - create_api - INFO - Data retrieved successfully for label1=None, geo=None
 2024-05-30 01:44:40,226 - create_api - INFO - Response status: 200 OK
-
-## Features
-
-- Fetches data from multiple endpoints of the Stats NZ API.
-- Renames columns for better readability.
-- Stores data in an SQLite database.
-- Scheduled to run in AWS.
 
 ## Contact
 Ruben Castaing castaingruben@gmail.com
